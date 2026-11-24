@@ -1,0 +1,214 @@
+{
+  "project_title": "Heart Disease Prediction",
+  "subtitle": "A Machine Learning Approach for 10-Year Coronary Heart Disease Prediction Using the Framingham Heart Study Dataset",
+  "selected_model": "Logistic Regression",
+  "default_threshold": 0.5,
+  "decision_threshold": 0.4288,
+  "threshold_selection": {
+    "data": "Out-of-fold predictions on the training set only",
+    "strict_min_specificity": 0.5,
+    "strict_min_precision": 0.2,
+    "selected_threshold": 0.4288,
+    "reason": "Maximum validation recall among thresholds meeting the pre-declared specificity >= 0.50 and precision >= 0.20 floors; ties broken by F1 and specificity.",
+    "applied_constraint_floor": {
+      "specificity": 0.5,
+      "precision": 0.2
+    },
+    "recall_change_vs_default": 0.108738,
+    "recall_at_selected_threshold": 0.8116504854368932,
+    "specificity_at_selected_threshold": 0.5179005908932917,
+    "note": "Increasing recall can increase false positives; false negatives are reduced, not eliminated.",
+    "default_threshold_metrics": {
+      "threshold": 0.5,
+      "accuracy": 0.6600825471698113,
+      "precision": 0.2657856093979442,
+      "recall": 0.7029126213592233,
+      "specificity": 0.6524157108098714,
+      "f1_score": 0.3857218966435802,
+      "false_negative_rate": 0.2970873786407767,
+      "roc_auc": 0.7300505178330987,
+      "pr_auc": 0.3490713026574465,
+      "true_negative": 1877,
+      "false_positive": 1000,
+      "false_negative": 153,
+      "true_positive": 362
+    }
+  },
+  "model_selection_method": "Models meeting specificity >= 0.50 and precision >= 0.20 were ranked by recall, then PR-AUC, F1-score, specificity and precision.",
+  "feature_names": [
+    "male",
+    "age",
+    "education",
+    "currentSmoker",
+    "cigsPerDay",
+    "BPMeds",
+    "prevalentStroke",
+    "prevalentHyp",
+    "diabetes",
+    "totChol",
+    "sysBP",
+    "diaBP",
+    "BMI",
+    "heartRate",
+    "glucose"
+  ],
+  "transformed_feature_names": [
+    "numeric__age",
+    "numeric__cigsPerDay",
+    "numeric__totChol",
+    "numeric__sysBP",
+    "numeric__diaBP",
+    "numeric__BMI",
+    "numeric__heartRate",
+    "numeric__glucose",
+    "binary__male",
+    "binary__currentSmoker",
+    "binary__BPMeds",
+    "binary__prevalentStroke",
+    "binary__prevalentHyp",
+    "binary__diabetes",
+    "education__education_0.0",
+    "education__education_1.0",
+    "education__education_2.0",
+    "education__education_3.0",
+    "education__education_4.0"
+  ],
+  "training_configuration": {
+    "random_state": 42,
+    "test_size": 0.2,
+    "stratified_split": true,
+    "cross_validator": "StratifiedKFold",
+    "cv_folds": 5,
+    "search": "GridSearchCV",
+    "primary_cv_metric": "recall",
+    "monitored_cv_metrics": [
+      "recall",
+      "precision",
+      "specificity",
+      "roc_auc",
+      "pr_auc"
+    ],
+    "preprocessing_fit_scope": "Inside each training/CV fold",
+    "target_column": "TenYearCHD"
+  },
+  "selected_hyperparameters": {
+    "classifier__C": 0.01,
+    "classifier__class_weight": "balanced"
+  },
+  "validation_metrics": {
+    "threshold": 0.4288,
+    "accuracy": 0.5625,
+    "precision": 0.23157894736842105,
+    "recall": 0.8116504854368932,
+    "specificity": 0.5179005908932917,
+    "f1_score": 0.3603448275862069,
+    "false_negative_rate": 0.1883495145631068,
+    "roc_auc": 0.7300505178330987,
+    "pr_auc": 0.3490713026574465,
+    "true_negative": 1490,
+    "false_positive": 1387,
+    "false_negative": 97,
+    "true_positive": 418
+  },
+  "final_test_metrics": {
+    "threshold": 0.4288,
+    "accuracy": 0.5672169811320755,
+    "precision": 0.22325581395348837,
+    "recall": 0.7441860465116279,
+    "specificity": 0.5354659248956884,
+    "f1_score": 0.3434704830053667,
+    "false_negative_rate": 0.2558139534883721,
+    "roc_auc": 0.6955827969509761,
+    "pr_auc": 0.2910570521637057,
+    "true_negative": 385,
+    "false_positive": 334,
+    "false_negative": 33,
+    "true_positive": 96
+  },
+  "dataset_information": {
+    "n_records": 4240,
+    "n_columns": 16,
+    "n_features": 15,
+    "target_column": "TenYearCHD",
+    "negative_cases": 3596,
+    "positive_cases": 644,
+    "positive_class_proportion": 0.151887,
+    "duplicate_rows": 0,
+    "missing_values": {
+      "education": 105,
+      "cigsPerDay": 29,
+      "BPMeds": 53,
+      "totChol": 50,
+      "BMI": 19,
+      "heartRate": 1,
+      "glucose": 388
+    },
+    "age_range": [
+      32,
+      70
+    ]
+  },
+  "input_ranges": {
+    "age": [
+      32.0,
+      70.0
+    ],
+    "cigsPerDay": [
+      0.0,
+      70.0
+    ],
+    "totChol": [
+      107.0,
+      696.0
+    ],
+    "sysBP": [
+      83.5,
+      295.0
+    ],
+    "diaBP": [
+      48.0,
+      142.5
+    ],
+    "BMI": [
+      15.54,
+      56.8
+    ],
+    "heartRate": [
+      44.0,
+      143.0
+    ],
+    "glucose": [
+      40.0,
+      394.0
+    ]
+  },
+  "age_validation": {
+    "observed_min": 32,
+    "observed_max": 70,
+    "rule": "Reject any age outside the observed 32-70 range."
+  },
+  "library_versions": {
+    "python": "3.10.12",
+    "numpy": "2.2.6",
+    "pandas": "2.2.3",
+    "scikit_learn": "1.7.2",
+    "xgboost": "3.2.0"
+  },
+  "feature_dtypes": {
+    "male": "int64",
+    "age": "int64",
+    "education": "float64",
+    "currentSmoker": "int64",
+    "cigsPerDay": "float64",
+    "BPMeds": "float64",
+    "prevalentStroke": "int64",
+    "prevalentHyp": "int64",
+    "diabetes": "int64",
+    "totChol": "float64",
+    "sysBP": "float64",
+    "diaBP": "float64",
+    "BMI": "float64",
+    "heartRate": "float64",
+    "glucose": "float64"
+  }
+}

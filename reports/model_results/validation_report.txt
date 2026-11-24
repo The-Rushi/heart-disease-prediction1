@@ -1,0 +1,31 @@
+HEART DISEASE PREDICTION - VALIDATION RESULTS
+=======================================================
+
+Selected model: Logistic Regression
+Selected threshold: 0.4288
+
+                 model  threshold  accuracy  precision   recall  specificity  f1_score  false_negative_rate  roc_auc   pr_auc  cv_best_mean_recall
+   Logistic Regression     0.4288  0.562500   0.231579 0.811650     0.517901  0.360345             0.188350 0.730051 0.349071             0.702913
+         Decision Tree     0.4806  0.554540   0.218644 0.751456     0.519291  0.338731             0.248544 0.677726 0.250234             0.735922
+         Random Forest     0.3292  0.548644   0.223312 0.796117     0.504345  0.348788             0.203883 0.714999 0.325650             0.450485
+Support Vector Machine     0.1062  0.548644   0.225702 0.811650     0.501564  0.353190             0.188350 0.722830 0.298969             0.722330
+               XGBoost     0.4061  0.545696   0.220588 0.786408     0.502607  0.344534             0.213592 0.713951 0.324515             0.636893
+
+Metrics are computed from out-of-fold predictions on the training set.
+The final test set is evaluated once, after model and threshold selection.
+
+FINAL TEST METRICS
+--------------------
+threshold: 0.4288
+accuracy: 0.5672169811320755
+precision: 0.22325581395348837
+recall: 0.7441860465116279
+specificity: 0.5354659248956884
+f1_score: 0.3434704830053667
+false_negative_rate: 0.2558139534883721
+roc_auc: 0.6955827969509761
+pr_auc: 0.2910570521637057
+true_negative: 385
+false_positive: 334
+false_negative: 33
+true_positive: 96
