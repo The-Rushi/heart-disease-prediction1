@@ -159,6 +159,9 @@ git push -u origin main
 3. Select **New app**, choose the repository, branch `main`, and main file `app/streamlit_app.py`.
 4. Click **Deploy**. The included `requirements.txt`, `runtime.txt` and `.streamlit/config.toml` are picked up automatically.
 5. Share the public URL shown in the Streamlit Cloud dashboard.
+6. If the app is already deployed, push the updated `requirements.txt` and use **Reboot app** in Streamlit Cloud so the pinned dependencies are reinstalled.
+
+`scikit-learn` is pinned to `1.7.2` and `joblib` to `1.6.0` because `models/best_model.joblib` was serialised with those versions. A newer scikit-learn can change imputer internals and break prediction. If your Cloud app uses Python 3.14, select Python 3.11, 3.12 or 3.13 in **Advanced settings**; Streamlit Cloud may ignore `runtime.txt` for Python selection.
 
 Keep `models/`, `reports/` and `data/framingham.csv` in the repository: the live app reads those saved artefacts at startup. After retraining locally, commit and push the regenerated artefacts to update the live site.
 
